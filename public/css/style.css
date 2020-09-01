@@ -1,0 +1,10 @@
+body {
+    font-size: medium;
+    background-color: rgb(25,25,25);
+    min-height: 100vh;
+}
+
+::placeholder {
+    font-size: smaller;
+}
+
