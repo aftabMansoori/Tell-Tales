@@ -1,0 +1,41 @@
+<%- include('../layouts/header') %> 
+
+<div class="uk-margin-remove">
+    <%- include('../partials/messages') %>
+    <div class="row">
+    <% publishedBook.forEach(book => { %>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="/images/book1.jpg" alt="">
+                    <div>
+                        <%= book.authorName %> 
+                    </div>
+                    <div>
+                        <%= book.bookGenre %> 
+                    </div>
+                    <div>
+                        <%= book.Language %> 
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="h4 uk-text-success uk-heading-bullet">
+                        <%= book.bookName %> 
+                    </div>
+                    <div class="small">
+                        <%= book.createdAt.toLocaleDateString() %> 
+                    </div>
+                    <div>
+                        <%= book.bookDescription %> 
+                    </div>
+                </div>
+            </div>
+            <a href="/book/read/<%= book.id %>" type="submit" class="uk-button btn-success uk-inline">READ</a>
+            <a href="/book/edit/<%= book.id %>" class="uk-button btn-info">EDIT</a>
+            <a href="#" type="submit" class="uk-button btn-danger uk-inline">DELETE</a>
+        </div>
+    <% }) %>
+    </div>
+</div>
+
+<%- include('../layouts/footer') %> 

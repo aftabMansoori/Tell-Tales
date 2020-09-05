@@ -1,0 +1,36 @@
+        <div>
+            <label for="cover">Cover Image:</label> <br>
+            <img width="200px" src="/images/book4.jpg" alt="">
+        </div>
+
+        <div >
+            <div class="uk-margin">
+                <label for="bookName">Book Name:</label> <br>
+                <input class="uk-input" type="text" name="bookName" value="<%= book.bookName %>" placeholder="Input">
+            </div>
+
+            <div class="uk-margin">
+                <label for="language">Language:</label> <br>
+                <input class="uk-input" type="text" name="bookLanguage" value="<%= book.bookLanguage %> " placeholder="Input">
+            </div>
+
+            <div class="uk-margin">
+                <label for="genre">Genre:</label> <br>
+                <select name="bookGenre" class="uk-select">
+                    <option value="Horror">Horror</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Action">Action</option>
+                    <option value="Self-motivation">Self-motivation</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label for="description">Description:</label>
+            <textarea class="uk-textarea" rows="5" name="bookDescription" placeholder="Textarea"><%= book.bookDescription %> </textarea>
+        </div>
+
+        <div class="uk-margin">
+            <label for="content">Write your Tale:</label>
+            <textarea class="uk-textarea" rows="5" name="tale" placeholder="Textarea"><%= book.tale %> </textarea>
+        </div>

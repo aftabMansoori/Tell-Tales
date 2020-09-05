@@ -1,12 +1,17 @@
-<%- include('./layouts/header') %> 
+<%- include('../layouts/header') %> 
 
-<%- include('./partials/messages') %>
 
-<form action="/user/register" method="POST" class="uk-align-center uk-container uk-form-stacked">
+<form action="/user/register" method="POST" class="uk-align-center p-4 uk-container uk-form-stacked uk-width-1-3@m user-form">
+
+    <img width="100px" class="uk-align-center" src="https://image.flaticon.com/icons/svg/860/860784.svg" alt="">
+
+    <h1 class="uk-heading-bullet uk-text-center"><span class="uk-text-muted">REGISTER</span></h1>
+
+    <%- include('../partials/messages') %>
 
     <div class="uk-margin">
         <label for="email" class="uk-form-label uk-text-muted">E-mail</label> 
-        <div class="uk-inline">
+        <div class="uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: mail"></span>
             <input class="uk-input" type="text" name="email" placeholder="Enter E-mail" value="<%= typeof email != 'undefined' ? email : '' %>">
         </div>
@@ -14,7 +19,7 @@
 
     <div class="uk-margin">
         <label for="email" class="uk-form-label uk-text-muted">User Name</label>
-        <div class="uk-inline">
+        <div class="uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: user"></span>
             <input class="uk-input" type="text" name="username" placeholder="Enter Username" value="<%= typeof username != 'undefined' ? username : '' %>">
         </div>
@@ -22,21 +27,22 @@
 
     <div class="uk-margin">
         <label for="email" class="uk-form-label uk-text-muted">Password</label>
-        <div class="uk-inline">
+        <div class="uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: lock"></span>
-            <input class="uk-input" type="password" name="password1" placeholder="Enter Password" value="<%= typeof password1 != 'undefined' ? password1 : '' %>">
+            <input class="uk-input" type="password" name="password" placeholder="Enter Password" value="<%= typeof password != 'undefined' ? password : '' %>">
         </div>
     </div>
 
     <div class="uk-margin">
         <label for="email" class="uk-form-label uk-text-muted">Re-type Password</label>
-        <div class="uk-inline">
+        <div class="uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: lock"></span>
-            <input class="uk-input" type="password" name="password2" placeholder="Enter Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
+            <input class="uk-input" type="password" name="password2" placeholder="Enter Password" value="<%= typeof epassword2 != 'undefined' ? password2 : '' %>">
         </div>
     </div>
 
-    <button type="submit" class="btn btn-success">Register</button>
+    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Register</button>
+
 </form>
 
-<%- include('./layouts/footer') %> 
+<%- include('../layouts/footer') %> 

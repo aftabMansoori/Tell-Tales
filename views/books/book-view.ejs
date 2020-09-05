@@ -1,0 +1,33 @@
+<%- include('../layouts/header') %> 
+
+<div class="uk-width-3-5@m uk-align-center">
+<div class="row">
+        <div class="col-sm-4">
+            <img src="/images/book1.jpg" alt="">
+            <div class="mt-3 text-center">
+                <a href="/book/read/<%= viewBook.id %>" class="btn btn-success mt-1 uk-inline">Read</a>
+                <form action="/book/grabbed/<%= viewBook.id %> " method="POST" class="uk-inline">
+                    <button class="btn btn-outline-danger mt-1">Grab</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="col-sm-8">
+            <div class="h1 uk-heading-bullet uk-text-success mt-3 text-capitalize">
+                <%= viewBook.bookName %>
+            </div>
+            <div class="small mt-2">
+                <%= viewBook.createdAt.toLocaleDateString() %>
+            </div>
+            <div class="mt-2 uk-text-muted text-capitalize">
+                Author: <span class="text-white"><%= viewBook.authorName %></span>
+            </div>
+            <div class="mt-2 uk-text-muted">
+                Description: <br> <span class="text-white"><%= viewBook.bookDescription %></span>
+            </div>
+        </div>
+    </div>
+        
+</div>
+
+<%- include('../layouts/footer') %> 

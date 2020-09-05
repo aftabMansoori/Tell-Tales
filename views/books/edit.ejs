@@ -1,0 +1,11 @@
+<%- include('../layouts/header') %> 
+
+<form action="/book/edit/<%= book.id %>?_method=PUT" method="POST" class="uk-form-stacked">
+
+    <%- include('../partials/messages') %>
+    <%- include('../partials/add-edit-form') %>
+    <button type="submit" class="uk-button uk-button-primary">EDIT</button>
+
+</form>
+
+<%- include('../layouts/footer') %> 

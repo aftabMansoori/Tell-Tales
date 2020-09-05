@@ -3,11 +3,14 @@ const mongoose = require('mongoose')
 const bookSchema = new mongoose.Schema({
     authorName: {
         type: String,
-        required: true
+        // required: true
     },
     bookName: {
         type: String,
         required: true
+    },
+    bookLanguage: {
+        type: String
     },
     bookDescription: {
         type: String,
@@ -21,7 +24,7 @@ const bookSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    content: {
+    tale: {
         type: String,
         required: true
     }

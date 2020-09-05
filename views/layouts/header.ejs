@@ -15,38 +15,79 @@
     <!-- NAVBAR -->
     <section>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">LIL-TALES</a>
+            <a class="navbar-brand" href="/">TELL-TALES</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                  <a class="nav-link" href="/">
+                    <span uk-icon="icon: home"></span>
+                    Home 
+                  </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Features</a>
+                  <p class="nav-link uk-inline">
+                    <span uk-icon="icon: thumbnails"></span>
+                      All Books
+                    </p>
+                  <div uk-dropdown="pos: bottom-center">
+                    <ul class="uk-nav uk-dropdown-nav">
+                      
+                        <li class="uk-nav-header">Genres</li>
+                        <li><a href="#">Horror</a></li>
+                        <li><a href="#">Fiction</a></li>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Self-motivation</a></li>
+                      
+                    </ul>
+                  </div>
+                </li>
+                
+                <li class="nav-item">
+                  <p class="nav-link">
+                    <span uk-icon="icon: file-text"></span>
+                    Dashboard
+                  </p>    
+                  <div uk-dropdown="pos: bottom-center">
+                    <ul class="uk-nav uk-dropdown-nav">
+                      <li><a href="/user/dashboard">Dashboard</a></li>  
+                      <li class="uk-nav-divider"></li>
+                      <li><a href="/book/add">Create</a></li>
+                      <li><a href="/book/published">Published</a></li>
+                      <li><a href="/book/grabbed">Grabbed</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item uk-inline">
+                  <a class="nav-link" href="/user/profile">
+                    <span uk-icon="icon: user"></span>
+                    Profile
+                  </a>
+                </li>
+                <li class="nav-item uk-inline">
+                  <a class="nav-link" href="/user/logout">
+                    <span uk-icon="icon: sign-out"></span>
+                    LogOut
+                  </a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/login">
+                    <span uk-icon="icon: sign-in"></span>
+                    login
+                  </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/books">All Books</a>
+                  <a class="nav-link" href="/user/register">
+                    register
+                  </a>
                 </li>
-                <li class="nav-item">
-                    <div class="nav-link">USER</div>
-                    <div uk-dropdown>
-                        <ul class="uk-nav uk-dropdown-nav">
-                            <li><a href="/user/login">login</a></li>
-                            <li><a href="/user/register">register</a></li>
-                            <li class="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a href="#">LogOut</a></li>
-                        </ul>
-                    </div>
-                </li>
-              </ul>
+                 
+              </ul>              
             </div>
           </nav>
     </section>
 
-    <div class="container uk-align-center uk-padding-small">
+    <div class="uk-container uk-padding">

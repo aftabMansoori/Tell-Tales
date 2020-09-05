@@ -1,0 +1,32 @@
+<%- include('../layouts/header') %> 
+    
+    <div class="">
+        <form action="/user/login" method="POST" class="uk-align-center uk-container uk-form-stacked uk-width-1-3@m user-form p-4">
+            
+            <img width="100px" class="uk-align-center" src="https://image.flaticon.com/icons/svg/860/860784.svg" alt="">
+            
+            <h1 class="uk-heading-bullet uk-text-center"><span class="uk-text-muted">LOGIN</span></h1>
+            
+            <%- include('../partials/messages') %>
+        
+            <div class="uk-margin">
+                <label for="email" class="uk-form-label uk-text-muted">E-mail</label> 
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                    <input class="uk-input" type="text" name="email" placeholder="Enter E-mail" value="<%= typeof email != 'undefined' ? email : '' %>">
+                </div>
+            </div>
+        
+            <div class="uk-margin">
+                <label for="email" class="uk-form-label uk-text-muted">Password</label>
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                    <input class="uk-input" type="password" name="password" placeholder="Enter Password" value="<%= typeof password != 'undefined' ? password : '' %>">
+                </div>
+            </div> 
+        
+            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">LOGIN</button>
+        </form>
+    </div>
+
+<%- include('../layouts/footer') %> 

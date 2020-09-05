@@ -1,39 +1,45 @@
 const express = require('express')
-const app = express()
-
-const mongoose = require('mongoose')
-const path = require('path')
 const bodyParser = require('body-parser')
+const path = require('path')
 const passport = require('passport')
 const flash = require('connect-flash')
 const session = require('express-session')
+const methodOverride = require('method-override')
 
-require('dotenv').config()
-require('./passport-config')(passport)
+const app = express()
 
-//MongoDB Connection
-mongoose
-    .connect(process.env.DATABASE_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log('DATABASE CONNECTED'))
-    .catch((err) => console.log(err))
-
-//MODElS
+//MODELS
 const User = require('./models/user')
 const Book = require('./models/book')
 
 //ROUTERS
+const indexRouter = require('./routes/index')
 const userRouter = require('./routes/user')
 const bookRouter = require('./routes/books')
+const user = require('./models/user')
+
+require('dotenv').config()
+require('./config/passport-config')(passport)
 
 //SET & USE
-app.set('view engine','ejs')
-app.use(express.json())
+app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.urlencoded({ extended:false }))
+app.use(methodOverride('_method'))
+
+//DATABASE CONNECTION
+const mongoose = require('mongoose')
+mongoose
+.connect(process.env.DATABASE_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    .then(() => console.log('Database connected...'))
+    .catch((err) => console.log(err))
 
 //SESSION
 app.use(flash())
@@ -42,19 +48,26 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-
 app.use(passport.initialize())
 app.use(passport.session())
 
-//ROUTES
-app.get('/', (req, res) => {
-    res.render('index')
+//GLOBAL VARS
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    res.locals.error = req.flash('error')
+    res.locals.created_msg = req.flash('created_msg')
+    res.locals.req = req.session
+    next()
 })
 
+//ROUTES
+app.use('/', indexRouter)
 app.use('/user', userRouter)
-app.use('/books', bookRouter)
+app.use('/book', bookRouter)
 
 //LISTEN
 const PORT = process.env.PORT || 3000
-app.listen(PORT, () => console.log(`SERVER IS LIVE AT ${PORT}`))
-
+app.listen(PORT, () => {
+    console.log(`Server is Live at ${PORT}`)
+})

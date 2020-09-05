@@ -1,0 +1,78 @@
+<%- include('../layouts/header') %> 
+
+<h1 class="uk-text-center uk-heading-bullet"><span class="uk-text-danger">DASHBOARD</span></h1>
+
+<section>
+
+<h3 class="uk-margin-medium-top uk-heading-bullet"><span class="uk-text-success">PUBLISHED</span></h3>
+
+<div class="">
+    <div class="row">
+    <% bookCreated.forEach(book => { %> 
+        <div class="col-md-4 col-12 uk-margin-small-top">
+            <div class="row">
+                <div class="col-5">
+                    <img src="/images/book1.jpg" alt="">
+                    <div>
+                        <%= book.bookName %> 
+                    </div>
+                    <div>
+                        <%= book.bookGenre %> 
+                    </div>
+                    <div>
+                        <%= book.authorName %> 
+                    </div>
+                </div>
+                <div class="col-7">
+                    <%= book.bookDescription %> 
+                </div>
+            </div>
+            <a href="/book/edit/<%= book.id %>" class="uk-button btn-info" class="uk-inline">EDIT</a>
+            <form action="/book/<%= book.id %>?_method=DELETE" method="POST" class="uk-inline">
+                <button type="submit" class="uk-button btn-danger">DELETE</button>
+            </form>
+        </div>
+    <% })  %>
+    </div>
+</div>
+
+</section>
+
+<section>
+
+<h3 class="uk-heading-bullet uk-margin-large-top"><span class="uk-text-success">GRABBED</span></h3>
+
+<div class="">
+    <div class="row">
+    <% bookGrabbed.forEach(book => { %> 
+        <div class="col-md-4 col-12 uk-margin-small-top">
+            <div class="row">
+                <div class="col-5">
+                    <img src="/images/book1.jpg" alt="">
+                    <div>
+                        <%= book.bookName %> 
+                    </div>
+                    <div>
+                        <%= book.bookGenre %> 
+                    </div>
+                    <div>
+                        <%= book.authorName %> 
+                    </div>
+                </div>
+                <div class="col-7">
+                    <%= book.bookDescription %> 
+                </div>
+            </div>
+            <a href="/book/read/<%= book.id %> " type="submit" class="uk-button btn-success">READ</a>
+            <form action="/book/<%= book.id %>?_method=DELETE" method="POST" class="uk-inline">
+                <button type="submit" class="uk-button btn-danger">DELETE</button>
+            </form>
+        </div>
+    <% })  %>
+    </div>
+</div>
+
+</section>
+
+
+<%- include('../layouts/footer') %> 

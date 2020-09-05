@@ -1,10 +1,21 @@
 body {
     font-size: medium;
     background-color: rgb(25,25,25);
-    min-height: 100vh;
 }
 
 ::placeholder {
     font-size: smaller;
+}
+
+.user-form {
+    background-color: rgb(245,240,245);
+    /* box-shadow: 0px 0px 8px white; */
+}
+
+.read {
+    background-color: rgb(242, 216, 190);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    border-radius: 1rem;
 }
 

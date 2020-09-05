@@ -2,7 +2,35 @@
     <% errors.forEach(function(error) { %>
         <div class="uk-alert-warning uk-width-auto" uk-alert>
             <a class="uk-alert-close" uk-close></a>
-            <p><%= error.msg %></p>
+            <p><%= error.message %></p>
         </div>
     <% }) %>
 <% } %>   
+
+<% if(success_msg != '') { %>
+    <div class="uk-alert-success uk-width-auto" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p><%= success_msg %></p>
+    </div>
+<% } %> 
+
+<% if(error_msg != '') { %>
+    <div class="uk-alert-danger uk-width-auto" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p><%= error_msg %></p>
+    </div>
+<% } %> 
+
+<% if(error != '') { %>
+    <div class="uk-alert-danger uk-width-auto" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p><%= error %></p>
+    </div>
+<% } %>
+
+<% if(created_msg != '') { %>
+    <div class="uk-alert-success uk-width-auto" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p><%= created_msg %></p>
+    </div>
+<% } %>

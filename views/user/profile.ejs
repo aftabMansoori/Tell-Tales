@@ -1,0 +1,19 @@
+<%- include('../layouts/header')  %> 
+
+<img width="80px" src="https://image.flaticon.com/icons/svg/860/860784.svg" alt="" uk-tooltip="title: Profile; pos: top; delay: 200">
+<br>
+Name:
+<%= user.username %> <br>
+Email:
+<%= user.email %>  <br>
+Joined:
+<%= user.user_date.toLocaleDateString() %> <br>
+About Me:
+<%= user.aboutme %> <br>
+<form action="/user/<%= user.id %>?_method=DELETE" method="POST" class="uk-inline">
+    <button type="submit" class="uk-button btn-danger">DELETE</button>
+</form>
+
+<a href="/user/edit-profile">Edit</a>
+
+<%- include('../layouts/footer')  %> 

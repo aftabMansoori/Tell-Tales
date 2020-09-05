@@ -1,0 +1,39 @@
+<%- include('../layouts/header') %> 
+
+<div class="uk-margin-remove">
+    <div class="row">
+    <% grabbedBook.forEach(book => { %>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="/images/book1.jpg" alt="">
+                    <div>
+                        <%= book.authorName %> 
+                    </div>
+                    <div>
+                        <%= book.bookGenre %> 
+                    </div>
+                    <div>
+                        <%= book.Language %> 
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="h4 uk-text-success uk-heading-bullet">
+                        <%= book.bookName %> 
+                    </div>
+                    <div class="small">
+                        <%= book.createdAt.toLocaleDateString() %> 
+                    </div>
+                    <div>
+                        <%= book.bookDescription %> 
+                    </div>
+                </div>
+            </div>
+            <a href="/book/read/<%= book.id %> " type="submit" class="uk-button uk-button-primary">READ</a>
+            <a href="#" type="submit" class="uk-button uk-button-danger">DELETE</a>
+        </div>
+    <% }) %>
+    </div>
+</div>
+
+<%- include('../layouts/footer') %> 

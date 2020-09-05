@@ -1,0 +1,23 @@
+<%- include('../layouts/header')  %> 
+
+<form>
+
+        <img width="80px" src="https://image.flaticon.com/icons/svg/860/860784.svg" alt="" uk-tooltip="title: Profile; pos: top; delay: 200">
+        <br>
+
+        <div class="uk-margin">
+            <input class="uk-input" type="text" placeholder="Input" value="<%= user.username %> ">
+        </div>
+
+        <div class="uk-margin">
+            <input class="uk-input" type="text" placeholder="Input" value="<%= user.email %> ">
+        </div>
+
+        <div class="uk-margin">
+            <textarea class="uk-textarea" rows="5" placeholder="Textarea">
+                <%= user.aboutme %> 
+            </textarea>
+        </div>
+</form>
+
+<%- include('../layouts/footer')  %> 
