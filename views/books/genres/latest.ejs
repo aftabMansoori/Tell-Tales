@@ -1,0 +1,29 @@
+<%- include('../../layouts/header') %> 
+
+<section id="latest">
+
+    <h3 class="uk-heading-bullet uk-align-center uk-text-center"><span class="uk-text-danger">LATEST</span></h3>
+
+    <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-3" uk-grid>
+        <% latestBook.forEach(book => { %> 
+        <div>
+            <div>
+                <a href="/book/view/<%= book.id %>">
+                    <div>
+                        <img src="/images/book1.jpg" alt="">
+                    </div>
+                </a>
+                <div class="h4 mt-2 text-success">
+                    <%= book.bookName %> 
+                </div>
+                <div class="text-white text-capitalize">
+                    <%= book.authorName %> 
+                </div>
+            </div>
+        </div>
+        <% }) %> 
+    </div>
+
+</section>
+
+<%- include('../../layouts/footer') %> 

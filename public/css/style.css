@@ -1,10 +1,14 @@
 body {
-    font-size: medium;
+    font-size: small;
     background-color: rgb(25,25,25);
 }
 
 ::placeholder {
     font-size: smaller;
+}
+
+hr {
+    border-top: 1px solid white;
 }
 
 .user-form {
@@ -13,9 +17,14 @@ body {
 }
 
 .read {
-    background-color: rgb(242, 216, 190);
+    background-color: rgb(252, 236, 200);
+    /* background-color: #fff; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 18px;
-    border-radius: 1rem;
+}
+
+footer {
+    background-color: #000;
+    padding: 2rem;
 }
 

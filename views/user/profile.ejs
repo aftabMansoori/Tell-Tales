@@ -1,19 +1,28 @@
 <%- include('../layouts/header')  %> 
+<div>
+    <img width="80px" src="https://image.flaticon.com/icons/svg/860/860784.svg" alt="" uk-tooltip="title: Profile; pos: top; delay: 200">
+</div>
+<div>
+    Name:
+    <%= user.username %> <br>
+</div>
+<div>
+    Email:
+    <%= user.email %>  <br>
+</div>
+<div>
+    Joined:
+    <%= user.user_date.toLocaleDateString() %> <br>
+</div>
+<div>
+    About Me:
+    <%= user.aboutme %> <br>
+</div>
 
-<img width="80px" src="https://image.flaticon.com/icons/svg/860/860784.svg" alt="" uk-tooltip="title: Profile; pos: top; delay: 200">
-<br>
-Name:
-<%= user.username %> <br>
-Email:
-<%= user.email %>  <br>
-Joined:
-<%= user.user_date.toLocaleDateString() %> <br>
-About Me:
-<%= user.aboutme %> <br>
 <form action="/user/<%= user.id %>?_method=DELETE" method="POST" class="uk-inline">
-    <button type="submit" class="uk-button btn-danger">DELETE</button>
+    <button type="submit" class="uk-button btn-danger" uk-icon="icon: trash"></button>
 </form>
 
-<a href="/user/edit-profile">Edit</a>
+<a href="/user/edit-profile" class="uk-button btn-info" uk-icon="icon: file-edit"></a>
 
 <%- include('../layouts/footer')  %> 

@@ -5,6 +5,7 @@ const passport = require('passport')
 const flash = require('connect-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const auth = require('./config/auth')
 
 const app = express()
 
@@ -33,6 +34,7 @@ app.use(methodOverride('_method'))
 
 //DATABASE CONNECTION
 const mongoose = require('mongoose')
+const { ensureAuthenticate } = require('./config/auth')
 mongoose
 .connect(process.env.DATABASE_URL, {
         useNewUrlParser: true,
@@ -57,7 +59,9 @@ app.use((req, res, next) => {
     res.locals.error_msg = req.flash('error_msg')
     res.locals.error = req.flash('error')
     res.locals.created_msg = req.flash('created_msg')
-    res.locals.req = req.session
+    res.locals.req = req   
+    // res.locals.session = req.session
+    // console.log(req.session)
     next()
 })
 
