@@ -1,9 +1,11 @@
-        <div>
+<div class="row">        
+        
+        <div class="col-md-2 col-12">
             <label for="cover">Cover Image:</label> <br>
             <img width="200px" src="/images/book4.jpg" alt="">
         </div>
 
-        <div >
+        <div class="col-md-5 col-12">
             <div class="uk-margin">
                 <label for="bookName">Book Name:</label> <br>
                 <input class="uk-input" type="text" name="bookName" value="<%= book.bookName %>" placeholder="Input">
@@ -25,12 +27,15 @@
             </div>
         </div>
 
-        <div class="uk-margin">
+        <div class="col-md-5 col-12">
             <label for="description">Description:</label>
-            <textarea class="uk-textarea" rows="5" name="bookDescription" placeholder="Textarea"><%= book.bookDescription %> </textarea>
+            <textarea class="uk-textarea" rows="5" name="bookDescription" placeholder="Textarea"><%= book.bookDescription %></textarea>
         </div>
 
-        <div class="uk-margin">
-            <label for="content">Write your Tale:</label>
-            <textarea class="uk-textarea" rows="5" name="tale" placeholder="Textarea"><%= book.tale %> </textarea>
-        </div>
+        
+    </div>
+    
+    <div class="uk-margin">
+        <label for="content">Write your Tale:</label>
+        <textarea class="uk-textarea" rows="8" name="tale" placeholder="Textarea"><%= book.tale %></textarea>
+    </div>

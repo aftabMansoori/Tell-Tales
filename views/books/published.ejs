@@ -1,33 +1,34 @@
 <%- include('../layouts/header') %> 
 
-<h1 class="uk-text-center uk-heading-bullet"><span class="text-light">PUBLISHED</span></h1>
+<h1 class="uk-text-center uk-heading-bullet"><span class="text-danger">PUBLISHED</span></h1>
 
 <div class="uk-margin-medium-top">
     <%- include('../partials/messages') %>
     <div class="row">
     <% publishedBook.forEach(book => { %>
-        <div class="col-lg-4 col-md-6 col-12 uk-margin-small-top">
+        <div class="col-md-6 col-12 uk-margin-small-top">
             <div class="row">
-                <div class="col-6">
-                    <img src="/images/book1.jpg" alt="">
+                <div class="col-4">
+                    <img class="cover" src="/images/book1.jpg" alt="">
                 </div>
-                <div class="col-6">
-                    <div class="h2 uk-text-success text-capitalize uk-heading-bullet">
+                <div class="col-8">
+                    <div class="text-muted">
+                    <span class="h3 uk-text-success text-capitalize uk-heading-bullet">
                         <%= book.bookName %> 
+                    </span>
+                        by
+                        <%= book.authorName %>
                     </div>
                     <div class="text-muted small">
                         <%= book.createdAt.toLocaleDateString() %> 
                     </div>
-                    <div class="text-white">
-                        Genre:
-                        <%= book.bookGenre %> 
+                    <span class="text-white text-capitalize">
+                         
+                    </span> 
+                    <div class="text-secondary text-capitalize">
+                        <%= book.bookDescription %> 
                     </div>
-                    <div class="text-white text-capitalize">
-                        Author:
-                        <%= book.authorName %> 
-                    </div> 
-                    <div class="text-white text-capitalize">
-                        Language:
+                    <div class="text-white uk-badge">
                         <%= book.bookGenre %> 
                     </div>
                 </div>

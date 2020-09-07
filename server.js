@@ -59,9 +59,8 @@ app.use((req, res, next) => {
     res.locals.error_msg = req.flash('error_msg')
     res.locals.error = req.flash('error')
     res.locals.created_msg = req.flash('created_msg')
+    res.locals.yours_msg = req.flash('yours_msg')
     res.locals.req = req   
-    // res.locals.session = req.session
-    // console.log(req.session)
     next()
 })
 

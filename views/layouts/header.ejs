@@ -14,15 +14,90 @@
 <body>
     <!-- NAVBAR -->
     <section class="sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <nav class="navbar navbar-dark bg-dark uk-visible@m uk-padding-remove-vertical" uk-navbar>
+
+          <a class="navbar-brand" href="/">TELL-TALES</a>
+          
+          <div class="uk-navbar-left">
+              <ul class="uk-navbar-nav">
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/">
+                    <span uk-icon="icon: home"></span>
+                    Home 
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span uk-icon="icon: thumbnails"></span>
+                      Books
+                  </a>
+                  <div class="uk-navbar-dropdown" uk-dropdown="pos: bottom-center; offset: 0">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      <li class="uk-nav-header">Genres</li>
+                      <li><a href="/book/horror">Horror</a></li>
+                      <li><a href="/book/fiction">Fiction</a></li>
+                      <li><a href="/book/action">Action</a></li>
+                      <li><a href="/book/self-motivation">Self-motivation</a></li>
+                    </ul>
+                  </div>
+                </li>   
+
+                <% if (req.user) { 
+                  let user = req.user
+                %> 
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <span uk-icon="icon: file-text"></span>
+                    Dashboard
+                  </a>    
+                  <div class="uk-navbar-dropdown" uk-dropdown="pos: bottom-center; offset: 0">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      <li><a href="/user/dashboard">Dashboard</a></li>  
+                      <li class="uk-nav-divider"></li>
+                      <li><a href="/book/add">Create</a></li>
+                      <li><a href="/book/published">Published</a></li>
+                      <li><a href="/book/grabbed">Grabbed</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/profile">
+                    <span uk-icon="icon: user">
+                    </span>
+                    <%= user.username %>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/logout">
+                    <span uk-icon="icon: sign-out"></span>
+                    LogOut
+                  </a>
+                </li>       
+                <% } else { %> 
+                <li class="nav-item">
+                  <a class="nav-link text-muted" href="/user/login">
+                    <span uk-icon="icon: sign-in"></span>
+                    login
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-muted" href="/user/register">
+                    <span uk-icon="icon: user"></span>
+                    register
+                  </a>
+                </li>
+                <% } %> 
+              </ul>          
+          </div>
+
+        </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark uk-hidden@m">
             <a class="navbar-brand" href="/">TELL-TALES</a>
 
-            <form class="uk-search uk-search-navbar">
-              <span uk-search-icon></span>
-              <input class="uk-search-input" type="search" placeholder="Search...">
-            </form>
-
-            <button class="uk-button uk-button-default text-muted ml-auto border-0" type="button" uk-toggle="target: #offcanvas-nav-primary"><span class="" uk-icon="icon: menu; ratio: 1.5"></span></button>
+            <button class="uk-button uk-button-default text-muted uk-padding-remove" type="button" uk-toggle="target: #offcanvas-nav-primary"><span class="" uk-icon="icon: menu; ratio: 1.5"></span></button>
             
             <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
               <div class="uk-offcanvas-bar uk-flex uk-flex-column">
@@ -50,7 +125,9 @@
                       </ul>
                     <!-- </div> -->
                   </li>
-
+                  <% if (req.user) {
+                    let user = req.user  
+                   %>           
                   <li class="uk-parent">
                     <a href="" class="nav-link">
                       <span uk-icon="icon: file-text"></span>
@@ -69,7 +146,7 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/user/profile">
                       <span uk-icon="icon: user"></span>
-                      Profile
+                      <%= user.username %>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -77,27 +154,25 @@
                       <span uk-icon="icon: sign-out"></span>
                       LogOut
                     </a>
-                  </li>  
-            
-                  
+                  </li>      
+                  <% } else { %>
                   <li class="nav-item">
-                    <a class="nav-link" href="/user/login">
+                    <a class="nav-link text-muted" href="/user/login">
                       <span uk-icon="icon: sign-in"></span>
                       login
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/user/register">
+                    <a class="nav-link text-muted" href="/user/register">
+                      <span uk-icon="icon: user"></span>
                       register
                     </a>
                   </li>
-
-                  
-
-
+                  <% } %> 
                 </ul>              
               </div>
-            </div>
+            </div>  
+
         </nav>
     </section>
 

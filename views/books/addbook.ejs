@@ -1,11 +1,11 @@
 <%- include('../layouts/header') %> 
 
-<h1 class="uk-heading-bullet uk-text-muted">ADD BOOKS</h1>
+<h1 class="uk-heading-bullet text-danger uk-text-center">ADD BOOKS</h1>
 
-<form action="/book/add" method="POST" class="uk-form-stacked">
+<form action="/book/add" method="POST" class="uk-form-stacked mt-5">
     <%- include('../partials/messages') %>
     <%- include('../partials/add-edit-form')  %> 
-    <button type="submit" class="uk-button uk-button-primary">Create</button>
+    <button type="submit" class="uk-button uk-button-primary uk-align-center">Create</button>
 </form>
 
 <%- include('../layouts/footer') %> 

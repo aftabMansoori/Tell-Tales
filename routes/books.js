@@ -6,14 +6,7 @@ const auth = require('../config/auth')
 const User = require('../models/user')
 const Book = require('../models/book')
 
-//ROUTES
-// router.get('/allbooks', async (req, res) => {
-//     try {
-//         res.render('books/allbooks')
-//     } catch(err) {
-//         console.log(err)
-//     }
-// })
+// ROUTES
 
 //ADD
 router.get('/add', auth.ensureAuthenticate,(req, res) => {
@@ -111,15 +104,16 @@ router.post('/grabbed/:id', auth.ensureAuthenticate, async (req, res) => {
     try {
         const book = await Book.findById(req.params.id)
         const user = await User.findById(req.user.id)
-        console.log(book._id)
-        
-        // if (book._id == user.bookCreated) {
-
-        // } else {
+        if(book.authorName != user.username) {
             user.grabbed.push(book._id)
             user.save()
             res.redirect('/book/grabbed')
-        // }
+        } else {
+            req.flash('yours_msg', 'You cannot grab your own book, you are its author :|.')
+            console.log('you have created it')
+            res.redirect(`/book/view/${req.params.id}`)
+        }
+        
     } catch (err) {
         console.log(err)
         res.redirect('/')
@@ -157,15 +151,6 @@ router.delete('/:id', auth.ensureAuthenticate, async (req, res) => {
             //     })
     res.redirect('/user/dashboard')
 })
-
-//LATEST
-router.get('/latest', async (req, res) => {
-    const latestBook = await Book.find().sort({ createdAt: 'desc' })
-    res.render('books/genres/latest', {
-        latestBook: latestBook
-    })
-})
-
 
 //ACTION
 router.get('/action', async (req, res) => {

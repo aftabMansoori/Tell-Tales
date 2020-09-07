@@ -34,3 +34,10 @@
         <p><%= created_msg %></p>
     </div>
 <% } %>
+
+<% if(yours_msg != '') { %>
+    <div class="uk-alert-success uk-width-auto" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p><%= yours_msg %></p>
+    </div>
+<% } %>
