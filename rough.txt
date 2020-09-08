@@ -1,3 +1,6 @@
- <% if(req.passport.user) { %> 
-<% } else { %> 
- <% }  %>
+<div class="text-center">
+            <a href="/book/edit/<%= book.id %>" class="uk-button btn-info uk-margin-small-top uk-inline" uk-tooltip="title: Edit; pos: bottom"><span uk-icon="icon: file-edit"></span></a>
+            <form action="/book/<%= book.id %>?_method=DELETE" method="POST" class=" uk-margin-small-top uk-inline">
+                <button type="submit" class="uk-button btn-danger" uk-tooltip="title: Delete; pos: bottom"><span uk-icon="icon: trash"></span></button>
+            </form>
+        </div>

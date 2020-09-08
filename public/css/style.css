@@ -34,11 +34,11 @@ footer {
 }
 
 .cover {
-    height: 250px;
-    border-radius: 10px;
+    height: 200px;
+    /* border-radius: 10px; */
 } 
 
 .overfloww {
-    max-height: 150px;
+    max-height: 125px;
     overflow: hidden;
 }

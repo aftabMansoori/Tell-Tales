@@ -1,0 +1,14 @@
+<% book.forEach(book => { %> 
+    <div>
+        <div class="hvr-grow">
+            <a href="/book/view/<%= book.id %>">
+                <div>
+                    <img src="/images/book1.jpg" alt="">
+                </div>
+            </a>
+            <div class="h4 mt-2 text-light">
+                <%= book.bookName %> 
+            </div>
+        </div>
+    </div>
+<% }) %>

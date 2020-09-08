@@ -12,7 +12,7 @@
             <a href="/" class="uk-button uk-button-danger uk-margin">Start Reading</a>
         </div>
         <div class="">
-            <a href="/user/login" class="uk-button uk-button-primary uk-margin">Start Writing</a>
+            <a href="/book/add" class="uk-button uk-button-primary uk-margin">Start Writing</a>
         </div>
         <div class="text-white">
             <span uk-icon="icon: quote-right; ratio: 2"></span>
@@ -29,23 +29,8 @@
     <h3 class="uk-heading-bullet uk-text-center mt-5"><span class="uk-text-danger">LATEST</span></h3>
 
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
-        <% book.forEach(book => { %> 
-        <div>
-            <div>
-                <a href="/book/view/<%= book.id %>">
-                    <div>
-                        <img src="/images/book1.jpg" alt="">
-                    </div>
-                </a>
-                <div class="h4 mt-2 text-success">
-                    <%= book.bookName %> 
-                </div>
-                <div class="text-white text-capitalize">
-                    <%= book.authorName %> 
-                </div>
-            </div>
-        </div>
-        <% }) %> 
+        <%  book = book %>      
+        <%- include('./partials/index-partial') %>  
     </div>
 
     <div class="mt-3"><a href="/book/latest" class="text-info h4">see more</a></div>
@@ -57,23 +42,8 @@
     <h3 class="uk-heading-bullet mt-5 uk-text-center"><span class="uk-text-danger">ACTION</span></h3>
 
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
-        <% action.forEach(book => { %> 
-        <div>
-            <div>
-                <a href="/book/view/<%= book.id %>">
-                    <div>
-                        <img src="/images/book1.jpg" alt="">
-                    </div>
-                </a>
-                <div class="h4 mt-2 text-success">
-                    <%= book.bookName %> 
-                </div>
-                <div class="text-white text-capitalize">
-                    <%= book.authorName %> 
-                </div>
-            </div>
-        </div>
-        <% }) %> 
+        <%  book = action %>      
+        <%- include('./partials/index-partial') %>  
     </div>
 
     <div class="mt-3"><a href="/book/action" class="text-info h4">see more</a></div>
@@ -85,23 +55,8 @@
     <h3 class="uk-heading-bullet mt-5 uk-text-center"><span class="uk-text-danger">FICTION</span></h3>
     
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
-        <% fiction.forEach(book => { %> 
-        <div>
-            <div>
-                <a href="/book/view/<%= book.id %>">
-                    <div>
-                        <img src="/images/book1.jpg" alt="">
-                    </div>
-                </a>
-                <div class="h4 mt-2 text-success">
-                    <%= book.bookName %> 
-                </div>
-                <div class="text-white text-capitalize">
-                    <%= book.authorName %> 
-                </div>
-            </div>
-        </div>
-        <% }) %> 
+        <%  book = fiction %>      
+        <%- include('./partials/index-partial') %> 
     </div>
 
     <div class="mt-3"><a href="/book/fiction" class="text-info h4">see more</a></div>
@@ -113,23 +68,8 @@
     <h3 class="uk-heading-bullet mt-5"><span class="uk-text-danger">HORROR</span></h3>
 
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
-        <% horror.forEach(book => { %> 
-        <div>
-            <div>
-                <a href="/book/view/<%= book.id %>">
-                    <div>
-                        <img src="/images/book1.jpg" alt="">
-                    </div>
-                </a>
-                <div class="h4 mt-2 text-success">
-                    <%= book.bookName %> 
-                </div>
-                <div class="text-white text-capitalize">
-                    <%= book.authorName %> 
-                </div>
-            </div>
-        </div>
-        <% }) %> 
+        <%  book = horror %>      
+        <%- include('./partials/index-partial') %> 
     </div>
 
     <div class="mt-3"><a href="/book/horror" class="text-info h4">see more</a></div>
@@ -141,23 +81,8 @@
     <h3 class="uk-heading-bullet mt-5 uk-text-center"><span class="uk-text-danger">SELF MOTIVATION</span></h3>
 
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
-        <% self_motivation.forEach(book => { %> 
-        <div>
-            <div>
-                <a href="/book/view/<%= book.id %>">
-                    <div>
-                        <img src="/images/book1.jpg" alt="">
-                    </div>
-                </a>
-                <div class="h4 mt-2 text-success">
-                    <%= book.bookName %> 
-                </div>
-                <div class="text-white text-capitalize">
-                    <%= book.authorName %> 
-                </div>
-            </div>
-        </div>
-        <% }) %> 
+        <%  book = self_motivation %>      
+        <%- include('./partials/index-partial') %>  
     </div>
 
     <div class="mt-3"><a href="/book/self-motivation" class="text-info h4">see more</a></div>
