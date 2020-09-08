@@ -11,16 +11,22 @@ hr {
     border-top: 1px solid white;
 }
 
+.logo {
+    font-size: x-large;
+    background: -webkit-linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .user-form {
     background-color: rgb(245,240,245);
-    /* box-shadow: 0px 0px 8px white; */
 }
 
 .read {
-    background-color: rgb(252, 236, 200);
-    /* background-color: #fff; */
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(252, 236, 230);
     font-size: 18px;
+    font-family: 'Balsamiq Sans', cursive;
+    padding: 1rem;
 }
 
 footer {
@@ -41,4 +47,20 @@ footer {
 .overfloww {
     max-height: 125px;
     overflow: hidden;
+}
+
+.Balsamiq-Sans {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.Caveat {
+    font-family: 'Caveat', cursive;
+}
+
+.Itim {
+    font-family: 'Itim', cursive;
+}
+
+.Nova-mono {
+    font-family: 'Nova Mono', monospace;
 }

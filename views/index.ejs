@@ -2,10 +2,10 @@
 
 <div class="uk-margin-remove uk-child-width-1-2@s uk-grid-match" uk-grid>
     <div class="uk-align-center">
-        <div class="h1 text-warning">
+        <div class="h1 text-warning Nova-mono">
             Welcome to Tell-Tales   
         </div>
-        <div class="h3 text-warning">
+        <div class="h3 text-warning Nova-mono">
             Tell us your Tales
         </div>
         <div class="">
@@ -14,7 +14,7 @@
         <div class="">
             <a href="/book/add" class="uk-button uk-button-primary uk-margin">Start Writing</a>
         </div>
-        <div class="text-white">
+        <div class="text-white Itim">
             <span uk-icon="icon: quote-right; ratio: 2"></span>
             In the case of good books, the point is not to see how many of them you can get through, but rather how many can get through to you.
         </div>
@@ -26,7 +26,7 @@
 
 <section id="latest">
 
-    <h3 class="uk-heading-bullet uk-text-center mt-5"><span class="uk-text-danger">LATEST</span></h3>
+    <h3 class="uk-heading-bullet uk-text-center mt-5"><span class="uk-text-danger Nova-mono">LATEST</span></h3>
 
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
         <%  book = book %>      
@@ -39,7 +39,7 @@
 
 <section id="Action">
 
-    <h3 class="uk-heading-bullet mt-5 uk-text-center"><span class="uk-text-danger">ACTION</span></h3>
+    <h3 class="uk-heading-bullet mt-5 uk-text-center"><span class="uk-text-danger Nova-mono">ACTION</span></h3>
 
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
         <%  book = action %>      
@@ -50,9 +50,48 @@
 
 </section>
 
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade mt-5" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/moon.jpg" class="d-block w-100 img-carousel" alt="...">
+        <div class="carousel-caption first d-md-block">
+          <p class="display-3 font-weight-bold d-sm-block d-none">"Fantasy"</p>
+          <p>Write your fantasy.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/images/horror.jpg" class="d-block w-100 img-carousel" alt="...">
+        <div class="carousel-caption d-md-block">
+        <p class="display-3 font-weight-bold d-sm-block d-none">"Horror"</p>
+          <p>Write your Horrror Story.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/images/romance.jpg" class="d-block w-100 img-carousel" alt="...">
+        <div class="carousel-caption d-md-block">
+            <p class="display-3 font-weight-bold d-sm-block d-none">"Romance"</p>
+          <p>Write your Romance Story.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
 <section id="Fiction">
 
-    <h3 class="uk-heading-bullet mt-5 uk-text-center"><span class="uk-text-danger">FICTION</span></h3>
+    <h3 class="uk-heading-bullet mt-5 uk-text-center"><span class="uk-text-danger Nova-mono">FICTION</span></h3>
     
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
         <%  book = fiction %>      
@@ -65,7 +104,7 @@
 
 <section id="Horror">
 
-    <h3 class="uk-heading-bullet mt-5"><span class="uk-text-danger">HORROR</span></h3>
+    <h3 class="uk-heading-bullet mt-5"><span class="uk-text-danger Nova-mono">HORROR</span></h3>
 
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
         <%  book = horror %>      
@@ -78,7 +117,7 @@
 
 <section id="Seft Motivation">
 
-    <h3 class="uk-heading-bullet mt-5 uk-text-center"><span class="uk-text-danger">SELF MOTIVATION</span></h3>
+    <h3 class="uk-heading-bullet mt-5 uk-text-center"><span class="uk-text-danger Nova-mono">SELF MOTIVATION</span></h3>
 
     <div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 mt-5" uk-grid>
         <%  book = self_motivation %>      

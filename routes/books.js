@@ -152,6 +152,14 @@ router.delete('/:id', auth.ensureAuthenticate, async (req, res) => {
     res.redirect('/user/dashboard')
 })
 
+//LATEST 
+router.get('/latest', async (req, res) => {
+    const latestBook = await Book.find().sort({ bookCreated: 'desc' }) 
+    res.render('books/genres/latest', {
+        latestBook: latestBook
+    })
+})
+
 //ACTION
 router.get('/action', async (req, res) => {
     const actionBook = await Book.find({ bookGenre: 'Action' }) 
