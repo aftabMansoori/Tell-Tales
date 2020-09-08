@@ -38,9 +38,7 @@ footer {
     border-radius: 10px;
 } 
 
-
-/* .uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle, .uk-search-navbar .uk-search-input {
-    min-height: 0px;
-    height: 30px;
-} */
-
+.overfloww {
+    max-height: 150px;
+    overflow: hidden;
+}

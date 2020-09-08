@@ -4,43 +4,8 @@
 
 <div class="uk-margin-remove">
     <div class="row">
-    <% grabbedBook.forEach(book => { %>
-        <div class="col-md-6 col-12 uk-margin-small-top">
-            <div class="row">
-                <div class="col-4">
-                    <img class="cover" src="/images/book1.jpg" alt="">
-                </div>
-                <div class="col-8">
-                    <div class="text-muted">
-                    <span class="h3 uk-text-success text-capitalize uk-heading-bullet">
-                        <%= book.bookName %> 
-                    </span>
-                        by
-                        <%= book.authorName %>
-                    </div>
-                    <div class="text-muted small">
-                        <%= book.createdAt.toLocaleDateString() %> 
-                    </div>
-                    <span class="text-white text-capitalize">
-                         
-                    </span> 
-                    <div class="text-secondary text-capitalize">
-                        <%= book.bookDescription %> 
-                    </div>
-                    <div class="text-white uk-badge">
-                        <%= book.bookGenre %> 
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <a href="/book/read/<%= book.id %>" class="uk-button btn-success uk-margin-small-top uk-inline" uk-tooltip="title: Read; pos: bottom"><span uk-icon="icon: file"></span></a>
-                <a href="/book/edit/<%= book.id %>" class="uk-button btn-info uk-margin-small-top uk-inline" uk-tooltip="title: Edit; pos: bottom"><span uk-icon="icon: file-edit"></span></a>
-                <form action="/book/<%= book.id %>?_method=DELETE" method="POST" class=" uk-margin-small-top uk-inline">
-                    <button type="submit" class="uk-button btn-danger" uk-tooltip="title: Delete; pos: bottom"><span uk-icon="icon: trash"></span></button>
-                </form>
-            </div>
-        </div>
-    <% }) %>
+        <%  book = grabbedBook %>      
+        <%- include('../partials/book-cards') %>
     </div>
 </div>
 
