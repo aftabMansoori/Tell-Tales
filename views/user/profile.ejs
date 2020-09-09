@@ -1,28 +1,51 @@
 <%- include('../layouts/header')  %> 
-<div>
-    <img width="80px" src="https://image.flaticon.com/icons/svg/860/860784.svg" alt="" uk-tooltip="title: Profile; pos: top; delay: 200">
-</div>
-<div>
-    Name:
-    <%= user.username %> <br>
-</div>
-<div>
-    Email:
-    <%= user.email %>  <br>
-</div>
-<div>
-    Joined:
-    <%= user.user_date.toLocaleDateString() %> <br>
-</div>
-<div>
-    About Me:
-    <%= user.aboutme %> <br>
+
+<div class="uk-child-width-1-4@s" uk-grid>
+    <div class="uk-card uk-card-default bg-primary p-3 uk-text-center">
+        <img width="100px" src="https://image.flaticon.com/icons/svg/860/860784.svg" alt="" uk-tooltip="title: Profile; pos: top; delay: 200">
+    </div>
+    <div class="uk-card uk-card-default bg-primary p-3">
+        <span class="h2 text-white">
+            Name:
+        </span> <br>
+        <span>
+            <%= user.username %> <br>
+        </span>
+    </div>
+    <div class="uk-card uk-card-default bg-primary p-3">
+        <span class="h2 text-white">
+            Email:
+        </span> <br>
+        <span>
+            <%= user.email %>  <br>
+        </span>
+    </div>
+    <div class="uk-card uk-card-default bg-primary p-3">
+        <span class="h2 text-white">
+            Joined:
+        </span> <br>
+        <span>
+            been with us since <%= user.user_date.toLocaleDateString() %> <br>
+        </span>
+    </div>
+    
 </div>
 
-<form action="/user/<%= user.id %>?_method=DELETE" method="POST" class="uk-inline">
-    <button type="submit" class="uk-button btn-danger" uk-icon="icon: trash"></button>
-</form>
+<div class="uk-card uk-card-default bg-primary p-3 uk-margin">
+    <span class="h2 text-white">
+        About Me:
+    </span> <br>
+    <span>
+        <%= user.aboutme %> <br>
+    </span>
+</div>
 
-<a href="/user/edit-profile" class="uk-button btn-info" uk-icon="icon: file-edit"></a>
+<div class="uk-margin uk-text-center">
+    <form action="/user/<%= user.id %>?_method=DELETE" method="POST" class="uk-inline">
+        <button type="submit" class="uk-button btn-danger" uk-icon="icon: trash"></button>
+    </form>
+    
+    <a href="/user/edit-profile" class="uk-button btn-info" uk-icon="icon: file-edit"></a>
+</div>
 
 <%- include('../layouts/footer')  %> 

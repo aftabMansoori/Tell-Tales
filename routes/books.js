@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const auth = require('../config/auth')
+const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
 
 //MODELS
 const User = require('../models/user')
@@ -31,7 +32,8 @@ router.post('/add', async (req, res) => {
                 bookName, bookGenre, bookLanguage, bookDescription, tale, 
                 authorName: req.user.username
             })
-            console.log(book)
+            saveCover(book, req.body.cover)
+            // console.log(book)
             book.save()
                 .then(async book => {
                     req.flash(
@@ -40,7 +42,7 @@ router.post('/add', async (req, res) => {
                     )
                     const user = await User.findById(req.user.id)
                     user.bookCreated.push(book._id) 
-                    console.log(user.bookCreated)   
+                    // console.log(user.bookCreated)   
                     user.save()
                     res.redirect('/book/published')
                 })
@@ -110,7 +112,7 @@ router.post('/grabbed/:id', auth.ensureAuthenticate, async (req, res) => {
             res.redirect('/book/grabbed')
         } else {
             req.flash('yours_msg', 'You cannot grab your own book, you are its author :|.')
-            console.log('you have created it')
+            // console.log('you have created it')
             res.redirect(`/book/view/${req.params.id}`)
         }
         
@@ -139,16 +141,6 @@ router.get('/read/:id', async (req, res) => {
 //DELETE
 router.delete('/:id', auth.ensureAuthenticate, async (req, res) => {
     await Book.findOneAndDelete({_id: req.params.id})
-            //   .then(
-            //       req.flash(
-            //           'deleted_msg', 
-            //           'Book has been removed successfully'
-            //         )
-            //     )
-            //         res.redirect('/book/dashboard')
-            //     .catch((err) => {
-            //         console.log(err)
-            //     })
     res.redirect('/user/dashboard')
 })
 
@@ -200,7 +192,7 @@ function saveBookAndRedirect(path) {
         book.bookGenre = req.body.bookGenre
         book.bookDescription = req.body.bookDescription
         book.tale = req.body.tale
-        // saveCover(book, req.body.cover)
+        saveCover(book, req.body.cover)
         try {
             book = await book.save();
             res.redirect('/user/dashboard');
@@ -210,5 +202,14 @@ function saveBookAndRedirect(path) {
         }
     };
 }
+
+function saveCover(book, coverEncoded) {
+    if (coverEncoded == null) return
+    const cover = JSON.parse(coverEncoded)
+    if (cover != null && imageMimeTypes.includes(cover.type)) {
+      book.coverImage = new Buffer.from(cover.data, 'base64')
+      book.coverImageType = cover.type
+    }
+  }
 
 module.exports = router

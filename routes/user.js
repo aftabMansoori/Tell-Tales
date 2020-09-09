@@ -40,7 +40,7 @@ router.post('/register', async (req, res) => {
                     let user = new User({
                         email, username, password: await bcrypt.hash(password, 10)
                     })
-                    console.log(user)
+                    // console.log(user)
                     user.save()
                         .then(user => {
                             req.flash(
@@ -103,6 +103,19 @@ router.get('/edit-profile', auth.ensureAuthenticate, async (req, res) => {
     res.render('user/editProfile', {
         user: user
     })
+})
+
+router.put('/edit-profile/:id', auth.ensureAuthenticate, async (req, res) => {
+    let profile = await User.findById(req.params.id)
+    profile.username = req.body.username
+    profile.aboutme = req.body.aboutme
+    try {
+        profile = await profile.save()
+        res.redirect('/user/profile')
+    } catch (err) {
+        console.log(err)
+        res.redirect('/user/profile')
+    }
 })
 
 // Logout
