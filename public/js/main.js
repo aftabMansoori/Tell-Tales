@@ -1,3 +1,5 @@
+AOS.init();
+
 FilePond.registerPlugin(
     FilePondPluginImagePreview,
     FilePondPluginImageResize,
@@ -11,3 +13,10 @@ FilePond.registerPlugin(
   })
   
   FilePond.parse(document.body);
+
+setTimeout(function() {
+  $('.loader_bg').fadeToggle()
+}, 500)
+
+
+

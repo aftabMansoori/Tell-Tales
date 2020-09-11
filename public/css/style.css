@@ -3,12 +3,21 @@ body {
     background-color: rgb(25,25,25);
 }
 
-::placeholder {
-    font-size: smaller;
+.loader_bg {
+    position: fixed;
+    z-index: 99999;
+    background: rgba(25, 25, 25, 0.7);
+    width: 100%;
+    height: 100%;
 }
 
-hr {
-    border-top: 1px solid white;
+.loader {
+    border: 0 solid transparent;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: calc(50vh - 40px);
+    left: calc(50vw - 40px);
 }
 
 .logo {
@@ -32,11 +41,6 @@ hr {
 footer {
     background-color: #000;
     padding: 2rem;
-}
-
-.search {
-    min-height: 0px;
-    height: 0px;
 }
 
 .cover {
@@ -64,3 +68,25 @@ footer {
 .Nova-mono {
     font-family: 'Nova Mono', monospace;
 }
+
+.typewriter {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    animation: 
+      typing 3s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
