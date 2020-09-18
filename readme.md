@@ -19,4 +19,4 @@
 </ul>
 
 <h3>UI</h3>
-<img width="400px" src="./UI/home.gif" alt="">
+<img width="700px" src="./UI/home.gif" alt="">
